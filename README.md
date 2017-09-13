@@ -1,1 +1,1 @@
-# learn_cocos2dx
+# learn_c
