@@ -1,3 +1,8 @@
 ﻿  learnc1.cpp
+f:\git_work\learn_c\learn_c\learn_c_1\learnc1.cpp(164): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+f:\git_work\learn_c\learn_c\learn_c_1\learnc1.cpp(172): warning C4305: “初始化”: 从“double”到“float”截断
+f:\git_work\learn_c\learn_c\learn_c_1\learnc1.cpp(173): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+f:\git_work\learn_c\learn_c\learn_c_1\learnc1.cpp(174): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+f:\git_work\learn_c\learn_c\learn_c_1\learnc1.cpp(215): warning C4101: “test1”: 未引用的局部变量
   learn_c_1.vcxproj -> F:\git_work\learn_c\learn_c\Debug\learn_c_1.exe
   learn_c_1.vcxproj -> F:\git_work\learn_c\learn_c\Debug\learn_c_1.pdb (Partial PDB)
