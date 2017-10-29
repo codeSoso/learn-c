@@ -1,27 +1,127 @@
 ﻿// learnc1.cpp: 定义控制台应用程序的入口点。
 
 #include "stdafx.h"
-#include <iostream> 
-
+#include <iostream>
 #define str 1.5 //宏  --替换 --弱类型
 //#define LENGTH 10.5
 #define LENGTH str
-
-
 //添加头文件
 //c++ api手册  官网文档：http://www.cplusplus.com
 using namespace std; //告诉编译器使用 std 命名空间，不调用的话，每次cout函数就必须要加上前缀命名空间(std::cout)，不然编译器报错，找不到该函数
 
 
+
+
+/*周末第一次作业_答案*/
+// * 1.用函数名为 calculateAreaSquare写一个计算矩形面积的c++函数, 
+//要求: 传入参数(即传参)长度,宽度, 本函数有返回值, 返回矩形面积; 
+//在main函数里完成调用本函数的操作,并在main函数中输出矩形面积.
+int calculateAreaSquare(int length, int width) {
+	int sq = length * width;
+	return sq;
+}
+
+
+// * 2.用函数名为  calculateAreaCircle写一个计算圆形面积的c++函数, 
+//要求: 传参半径, 有返回值,返回圆形面积; 在main函数里调用calculateAreaCircle, 并把题目1的矩形面积作为半径值传入本函数, 
+//并在main函数中输出圆形面积.
+float calculateAreaCircle(int r) {
+	const float pai = 3.14;//π作为一个常量数值,不应该再被修改,就可以使用const来修饰,避免后面程序不小心把pai重新赋值了.
+	float area = pai*r*r;
+	return area;
+}
+
+
+//*3.用函数名 coutFive写一个函数, 要求输出打印乘法表的图案 如下
+//1 * 1 = 1
+//1 * 2 = 2     2 * 2 = 4
+//1 * 3 = 3     2 * 3 = 6     3 * 3 = 9
+//1 * 4 = 4     2 * 4 = 8     3 * 4 = 12    4 * 4 = 16
+//1 * 5 = 5     2 * 5 = 10   3 * 5 = 15    4 * 5 = 20  5 * 5 = 25
+
+void coutFive() {
+	int count = 5;
+	for (int i = 1; i <= count; i++)
+	{
+		for (int j = 1; j <= i; j++)
+		{
+			cout << j << "*" << i << "="<<i*j<<"  ";
+			if (i == j) {
+				cout << endl;
+			}
+		}
+	}
+}
+
+
+//*4.用函数名 changeNumber写一个函数, 要求: 以自己的出生年份, 比如1996, 分别得到个位数, 千位数, 并分别赋值给a, b, 
+//然后输出a, b的值; 然后实现a, b的值交换(即把a的值传给b, b的值传给a), 再输出a, b的结果.
+void changeNumber() {
+	cout << "请输入你的出生年份:" << endl;
+	int year;
+	cin >> year;
+	int a = year % 10; //得到个位数
+	int b = year / 1000; //得到千位数
+	cout << "交换前:a,=" << a << " b = " << b << endl;
+	int temp = b;
+	b = a;
+	a = temp;
+	cout << "交换后:a,=" << a << " b = " << b << endl;
+	//思考 使用不需要临时变量temp作为介质的 交换方法.
+}
+
+
+
+//*5.自定义一个函数, 函数名自取, 要求: 获取控制台用户输入的两个正整数, 并计算两个数的最大公约数和最小公倍数之和, 并输出结果.
+//tips :
+//	使用cin 获取控制台的用户数据输入值.如下 :
+//	int a;
+//cin >> a; //用户输入的数值赋值给了变量a;
+
+void theFiveth() {
+	int a, b;
+	cout << "请输入正整数a:" << endl;
+	cin >> a;
+	cout << "请输入正整数b:" << endl;
+	cin >> b;
+	int min = a > b ? b : a; //得到两个数的最小数
+	int max = a < b ? b : a;//得到两个数的最大数
+
+	int i = 1;
+	int result;
+	while (i <= min) {
+		if (max%i == 0 && min%i == 0) {
+			result = i;
+		}
+		i++;
+	}
+	cout << "得到最大公约数: " << result << endl;
+
+	i = max;
+	while (true) {
+		if (i%max == 0 && i%min == 0) {
+			result = i;
+			break;
+		}
+		i++;
+	}
+	cout << "得到最小公倍数:" << result << endl;
+}
+
+
+void c1_HomeWorkAnswer() {
+	int area = calculateAreaSquare(2, 4);
+	cout << "矩形面积:" << area << endl;
+	float circleArea = calculateAreaCircle(area);
+	cout << "圆形面积:" << circleArea << endl;
+	coutFive();
+	changeNumber();
+	theFiveth();
+}
+
+
 // 命名规则/规范  推荐 匈牙利命名法
-
-
-
 int g_iGlobalTest = 99; //全局变量
-
-
-
-
 /*
 return_type(void ,int,boolean ) function_name( parameter list )
 {
@@ -49,7 +149,7 @@ float testSwitchFunction(int i) {
 	case 3:
 		cout << " case 3 " << endl;
 		break;
-	default:
+	default:	
 		cout << " case default " << endl;
 		break;
 	}
@@ -185,6 +285,15 @@ void testFunction()
 // main() 是程序开始执行的地方
 int main() //程序入口
 { //代码块
+
+
+	//上周的作业答案,供参考之用,其实答案不唯一的, 可以有很多种解题方法
+	c1_HomeWorkAnswer();
+	return 0;
+
+
+
+
 	int _i1 = 5;
 	float _r_i = testSwitchFunction(_i1); //传参
 	cout << "_r_i = " << _r_i << endl;
@@ -196,11 +305,11 @@ int main() //程序入口
 
 	testOperationFunction();
 	cout << "gggggg = " << g_iGlobalTest << endl;
-	cout << "str_1 = " << str_1 ;
+	cout << "str_1 = " << str_1;
 	testFunction(); //调用函数
 	cout << " 30 g_iGlobalTest = " << g_iGlobalTest << endl;
-	
-	
+
+
 
 	/*第一讲目标：
 		1、介绍了c++和计算机语言的发展
@@ -227,7 +336,7 @@ int main() //程序入口
 	//int i3;
 	//int i, i1, i2, i3; //申明int变量
 
-	i = 120; 
+	i = 120;
 
 	cout << "sizeof i = " << sizeof(i) << endl;
 
@@ -247,14 +356,14 @@ int main() //程序入口
 	//true
 	//false
 
-	/*1   
+	/*1
 	二进制 与十进制的区别
 	二进制数据是用0和1两个数码来表示的数。它的基数为2，进位规则是“逢二进一”
 
-	10进制： 1+1 = 2   
+	10进制： 1+1 = 2
 	对应的2进制：01 + 01 = 10 （01+01的最低位1相加等于2，进位 ）
 
-	10进制：3 
+	10进制：3
 	对应的2进制：01 +01 +01 = 10 + 01 = 11
 
 	10进制：5
@@ -264,7 +373,7 @@ int main() //程序入口
 
 	/*
 		第二讲：回顾下二进制和十进制的理论，以及以前考试的笔算方法;更多方法可参考baidu
-		讲解c++基础语法 
+		讲解c++基础语法
 		从 http://www.runoob.com/cplusplus/cpp-basic-syntax.html C++ 程序结构 开始讲起
 		到 http://www.runoob.com/cplusplus/cpp-functions.html 定义函数 结束
 	*/
@@ -307,5 +416,5 @@ int main() //程序入口
 	//	http://blog.csdn.net/jhq0113/article/details/8042375
 
 
-    return 0;
+	return 0;
 }
